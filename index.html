@@ -6,317 +6,14 @@
    </title>
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet" />
-   <style>
-      body {
-         font-family: 'Roboto', sans-serif;
-         margin: 0;
-         padding: 0;
-         background-color: #f5f5f5;
-      }
-
-      .container {
-         width: 100%;
-         max-width: 400px;
-         margin: 0 auto;
-         background-color: #fff;
-         padding: 20px;
-      }
-
-      .header {
-         position: relative;
-         text-align: center;
-         color: white;
-      }
-
-      .header img.logo {
-         width: 50px;
-         height: 50px;
-         border-radius: 50%;
-         position: absolute;
-         top: 10px;
-         left: 10px;
-         z-index: 3;
-      }
-
-      .header .title {
-         position: absolute;
-         top: 10px;
-         left: 70px;
-         z-index: 2;
-      }
-
-      .header .title h1 {
-         margin: 0;
-         font-size: 18px;
-         font-weight: 700;
-         color: white;
-      }
-
-      .header .title p {
-         margin: 0;
-         font-size: 14px;
-         color: #e7d1d1;
-      }
-
-      .header img.background {
-         width: 100%;
-         height: 150px;
-         object-fit: cover;
-         border-radius: 5px;
-         filter: contrast(50%);
-      }
-
-      .language-selector {
-         position: absolute;
-         top: 10px;
-         right: 10px;
-      }
-
-      .language-selector button {
-         background-color: #fff;
-         border-radius: 5px;
-         border: none;
-         cursor: pointer;
-         font-size: 14px;
-      }
-
-      .language-selector-content {
-         display: none;
-         position: absolute;
-         background-color: #f9f9f9;
-         min-width: 100px;
-         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-         z-index: 1;
-      }
-
-      .language-selector-content button {
-         color: black;
-         padding: 12px 16px;
-         text-decoration: none;
-         display: block;
-         border: none;
-         background: none;
-         cursor: pointer;
-         width: 100%;
-         text-align: left;
-      }
-
-      .language-selector-content button:hover {
-         background-color: #f1f1f1;
-      }
-
-      .language-selector:hover .language-selector-content {
-         display: block;
-      }
-
-      .delivery-options {
-         display: flex;
-         justify-content: space-between;
-         margin: 20px 0;
-      }
-
-      .delivery-options a {
-         flex: 1;
-         padding: 10px;
-         margin: 0 5px;
-         border: none;
-         border-radius: 5px;
-         font-size: 14px;
-         text-align: center;
-         text-decoration: none;
-         color: #fff;
-         cursor: pointer;
-      }
-
-      .delivery-options .reserve {
-         background-color: #000;
-      }
-
-      .delivery-options .whatsapp {
-         background-color: #25D366;
-      }
-
-      .availability {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         margin: 10px 0;
-      }
-
-      .availability .status {
-         color: #000;
-         font-size: 14px;
-         font-weight: 500;
-      }
-
-      .availability select {
-         font-size: 14px;
-         color: #888;
-         border: none;
-         background: none;
-      }
-
-      .search-bar {
-         display: flex;
-         align-items: center;
-         padding: 10px;
-         background-color: #f5f5f5;
-         border-radius: 5px;
-         margin: 20px 0;
-      }
-
-      .search-bar input {
-         flex: 1;
-         border: none;
-         background: none;
-         font-size: 14px;
-         padding: 5px;
-      }
-
-      .search-bar i {
-         color: #888;
-      }
-
-      .categories {
-         display: flex;
-         overflow-x: auto;
-         margin: 20px 0;
-      }
-
-      .categories .category {
-         text-align: center;
-         flex: 0 0 25%;
-         margin: 5px;
-         cursor: pointer;
-      }
-
-      .categories .category img {
-         width: 50px;
-         height: 50px;
-         border-radius: 50%;
-      }
-
-      .categories .category p {
-         font-size: 12px;
-         color: #888;
-      }
-
-      .section {
-         margin: 20px 0;
-      }
-
-      .section h2 {
-         font-size: 18px;
-         font-weight: 700;
-         margin: 0 0 10px 0;
-      }
-
-      .item {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         padding: 10px;
-         background-color: #fff;
-         border-radius: 5px;
-         margin: 10px 0;
-         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      }
-
-      .item img {
-         width: 50px;
-         height: 50px;
-         border-radius: 5px;
-      }
-
-      .item .details {
-         flex: 1;
-         margin-left: 10px;
-      }
-
-      .item .details h3 {
-         margin: 0;
-         font-size: 14px;
-         font-weight: 500;
-      }
-
-      .item .details p {
-         margin: 5px 0;
-         font-size: 12px;
-         color: #888;
-      }
-
-      .item .price {
-         font-size: 14px;
-         font-weight: 700;
-         color: #ff6f61;
-      }
-
-      .footer {
-         text-align: center;
-         margin: 20px 0;
-      }
-
-      .footer a {
-         color: #000;
-         text-decoration: none;
-         margin: 0 10px;
-      }
-
-      .footer p {
-         font-size: 12px;
-         color: #888;
-      }
-   </style>
-   <script>
-      function showSection(sectionId) {
-         // Hide all sections
-         document.querySelectorAll('.section').forEach(section => {
-            section.style.display = 'none';
-         });
-
-         // Show the selected section
-         document.getElementById(sectionId).style.display = 'block';
-      }
-
-      function searchProducts() {
-         const input = document.getElementById('searchInput').value.toLowerCase();
-         const items = document.querySelectorAll('.item');
-
-         items.forEach(item => {
-            const itemName = item.querySelector('.details h3').textContent.toLowerCase();
-            if (itemName.includes(input)) {
-               item.style.display = 'flex';
-            } else {
-               item.style.display = 'none';
-            }
-         });
-      }
-
-      function changeLanguage(language) {
-         // Implement language change logic here
-         alert('Language changed to: ' + language);
-      }
-
-      window.onscroll = function () {
-         const backToTopButton = document.getElementById('backToTop');
-         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            backToTopButton.style.display = 'block';
-         } else {
-            backToTopButton.style.display = 'none';
-         }
-      };
-
-      function backToTop() {
-         document.body.scrollTop = 0;
-         document.documentElement.scrollTop = 0;
-      }
-   </script>
+   <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
+   
 </head>
 
 <body>
    <div class="container">
       <div class="header">
-         <img alt="Jardin de Invierno Logo" class="logo" height="50" src="./img/logoJardinInvierno.jpg" width="50" />
+         <img alt="Jardin de Invierno Logo" class="logo" height="50" src="./CSS/img/logoJardinInvierno.jpg" width="50" />
          <div class="title">
             <h1>
                Jardin de Invierno Restaurante
@@ -326,7 +23,7 @@
             </p>
          </div>
          <img alt="Header Background" class="background"
-            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/ec/24/df/jardin-de-invierno.jpg?w=700&amp;h=-1&amp;s=1" />
+            src="./CSS/img/jardin-de-invierno.jpg" />
          <div class="language-selector">
             <button>
                <img alt="Language" height="20"
@@ -384,49 +81,49 @@
       </div>
       <div class="categories">
          <div class="category" onclick="showSection('entradas')">
-            <img alt="Entradas" height="50" src="./img/entradas.png" width="50" />
+            <img alt="Entradas" height="50" src="./CSS/img/entradas.png" width="50" />
             <p>
                Entradas
             </p>
          </div>
          <div class="category" onclick="showSection('ensaladas')">
-            <img alt="Ensaladas" height="50" src="./img/ensalada.png" width="50" />
+            <img alt="Ensaladas" height="50" src="./CSS/img/ensalada.png" width="50" />
             <p>
                Ensaladas
             </p>
          </div>
          <div class="category" onclick="showSection('grill-loisuites')">
-            <img alt="Grill Loisuites" height="50" src="./img/grill.png" width="50" />
+            <img alt="Grill Loisuites" height="50" src="./CSS/img/grill.png" width="50" />
             <p>
                Grill Loisuites
             </p>
          </div>
          <div class="category" onclick="showSection('principales')">
-            <img alt="Principales" height="50" src="./img/principal.png" width="50" />
+            <img alt="Principales" height="50" src="./CSS/img/principal.png" width="50" />
             <p>
                Principales
             </p>
          </div>
          <div class="category" onclick="showSection('menu-infantil')">
-            <img alt="Menu Infantil" height="50" src="./img/menu-niño.png" width="50" />
+            <img alt="Menu Infantil" height="50" src="./CSS/img/menu-niño.png" width="50" />
             <p>
                Menu Infantil
             </p>
          </div>
          <div class="category" onclick="showSection('postres')">
-            <img alt="Postres" height="50" src="./img/postres.png" width="50" />
+            <img alt="Postres" height="50" src="./CSS/img/postres.png" width="50" />
             <p>
                Postres
             </p>
          </div>
          <div class="category" onclick="showSection('pastas-frescas')">
-            <img alt="Pastas Frescas" height="50" src="./img/pastas.png" width="50" />
+            <img alt="Pastas Frescas" height="50" src="./CSS/img/pastas.png" width="50" />
             <p>
                Pastas Frescas
             </p>
          </div>
          <div class="category" onclick="showSection('bebidas')">
-            <img alt="Bebidas" height="50" src="./img/bebidas.png" width="50" />
+            <img alt="Bebidas" height="50" src="./CSS/img/bebidas.png" width="50" />
             <p>
                Bebidas
             </p>
@@ -438,39 +135,23 @@
             </p>
          </div>
          <div class="category" onclick="showSection('vinos')">
-            <img alt="Vinos" height="50" src="./img/vino.png" width="50" />
+            <img alt="Vinos" height="50" src="./CSS/img/vino.png" width="50" />
             <p>
                Vinos
             </p>
          </div>
          <div class="category" onclick="showSection('cocktail')">
-            <img alt="Cocktail" height="50" src="./img/cocktail.png" width="50" />
+            <img alt="Cocktail" height="50" src="./CSS/img/cocktail.png" width="50" />
             <p>
                Cocktail
             </p>
          </div>
       </div>
-      <section>
+   <!--ENTRADAS -->
          <div class="section" id="entradas">
             <h2>
                Entradas
             </h2>
-            <div class="item">
-               <div class="details">
-                  <h3>
-                     Bombas de Salmon
-                  </h3>
-                  <p>
-                     Salmon y mozzarella, rebozadas en panko, con salsa de soja
-                  </p>
-                  <span class="price">
-                     Desde $ 5.700,00
-                  </span>
-               </div>
-               <img alt="Image of Bombas de Salmon" height="50"
-                  src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
-                  width="50" />
-            </div>
             <div class="item">
                <div class="details">
                   <h3>
@@ -496,6 +177,10 @@
                   <span class="price">
                      ARS 4,100.00
                   </span>
+                  </div>
+                  <img alt="Image of Bombas de Salmon" height="50"
+                  src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
+                  width="50" />
                </div>
             </div>
             <div class="item">
@@ -579,8 +264,7 @@
                   </span>
                </div>
             </div>
-      </section>
-      <section>
+   <!--ENSALADAS-->
          <div class="section" id="ensaladas">
             <h2>
                Ensaladas
@@ -628,9 +312,8 @@
                   </span>
                </div>
             </div>
-      </section>
-      <section>
-         <div class="section" id="grill-loisuites">
+   <!--GRILL-->
+   <div class="section" id="grill">
             <h2>
                Grill Loi Suites
             </h2>
@@ -744,8 +427,7 @@
                   </span>
                </div>
             </div>
-      </section>
-      <section>
+   <!-- PRINCIPALES -->
          <div class="section" id="principales">
             <h2>
                Principales
@@ -822,9 +504,7 @@
                   </span>
                </div>
             </div>
-      </section>
-
-      <section>
+   <!--MENU INFANTIL -->
          <div class="section" id="menu-infantil">
             <h2>
                Manu Infantil
@@ -838,9 +518,6 @@
                      ARS 9,000.00
                   </span>
                </div>
-               <img alt="Image of Bombas de Salmon" height="50"
-                  src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
-                  width="50" />
             </div>
             <div class="item">
                <div class="details">
@@ -891,9 +568,7 @@
                   </span>
                </div>
             </div>
-      </section>
-
-      <section>
+   <!--POSTRES -->
          <div class="section" id="postres">
             <h2>
                Postres
@@ -987,9 +662,7 @@
                   </span>
                </div>
             </div>
-      </section>
-
-      <section>
+   <!--PASTAS FRESCAS -->
          <div class="section" id="pastas-frescas">
             <h2>
                Pastas Frescas
@@ -1092,9 +765,7 @@
                   </span>
                </div>
             </div>
-      </section>
-
-      <section>
+            <!--BEBIDAS -->
          <div class="section" id="bebidas">
             <h2>
                Bebidas
@@ -1162,9 +833,7 @@
                   </span>
                </div>
             </div>
-      </section>
-
-      <section>
+      <!-- CAFETERIA -->
          <div class="section" id="cafeteria">
             <h2>
                Cafeteria
@@ -1248,9 +917,7 @@
                      </span>
                </div>
             </div>
-      </section>
-
-      <section>
+      <!-- VINOS -->
          <div class="section" id="vinos">
             <h2>
                Vinos - Malbec
@@ -1358,9 +1025,7 @@
                   </span>
                </div>
             </div>
-      </section>
-
-      <section>
+      <!-- COCKTAIL -->
          <div class="section" id="cocktail">
             <h2>
                Cocktail
@@ -1555,7 +1220,7 @@
                   </span>
                </div>
             </div>
-      </section>
+      <!--FOOTER -->
       <div class="footer">
          <a href="https://www.instagram.com/jardindeinviernorestaurante/" target="_blank">
             <i class="fab fa-instagram"></i>
@@ -1564,6 +1229,6 @@
       </div>
    </div>
    <button id="backToTop" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
+   <script src="./script.js"></script>
 </body>
-
 </html>
