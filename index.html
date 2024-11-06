@@ -1,0 +1,1569 @@
+<html>
+
+<head>
+   <title>
+      Jardin de Invierno Restaurante
+   </title>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+   <style>
+      body {
+         font-family: 'Roboto', sans-serif;
+         margin: 0;
+         padding: 0;
+         background-color: #f5f5f5;
+      }
+
+      .container {
+         width: 100%;
+         max-width: 400px;
+         margin: 0 auto;
+         background-color: #fff;
+         padding: 20px;
+      }
+
+      .header {
+         position: relative;
+         text-align: center;
+         color: white;
+      }
+
+      .header img.logo {
+         width: 50px;
+         height: 50px;
+         border-radius: 50%;
+         position: absolute;
+         top: 10px;
+         left: 10px;
+         z-index: 3;
+      }
+
+      .header .title {
+         position: absolute;
+         top: 10px;
+         left: 70px;
+         z-index: 2;
+      }
+
+      .header .title h1 {
+         margin: 0;
+         font-size: 18px;
+         font-weight: 700;
+         color: white;
+      }
+
+      .header .title p {
+         margin: 0;
+         font-size: 14px;
+         color: #e7d1d1;
+      }
+
+      .header img.background {
+         width: 100%;
+         height: 150px;
+         object-fit: cover;
+         border-radius: 5px;
+         filter: contrast(50%);
+      }
+
+      .language-selector {
+         position: absolute;
+         top: 10px;
+         right: 10px;
+      }
+
+      .language-selector button {
+         background-color: #fff;
+         border-radius: 5px;
+         border: none;
+         cursor: pointer;
+         font-size: 14px;
+      }
+
+      .language-selector-content {
+         display: none;
+         position: absolute;
+         background-color: #f9f9f9;
+         min-width: 100px;
+         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+         z-index: 1;
+      }
+
+      .language-selector-content button {
+         color: black;
+         padding: 12px 16px;
+         text-decoration: none;
+         display: block;
+         border: none;
+         background: none;
+         cursor: pointer;
+         width: 100%;
+         text-align: left;
+      }
+
+      .language-selector-content button:hover {
+         background-color: #f1f1f1;
+      }
+
+      .language-selector:hover .language-selector-content {
+         display: block;
+      }
+
+      .delivery-options {
+         display: flex;
+         justify-content: space-between;
+         margin: 20px 0;
+      }
+
+      .delivery-options a {
+         flex: 1;
+         padding: 10px;
+         margin: 0 5px;
+         border: none;
+         border-radius: 5px;
+         font-size: 14px;
+         text-align: center;
+         text-decoration: none;
+         color: #fff;
+         cursor: pointer;
+      }
+
+      .delivery-options .reserve {
+         background-color: #000;
+      }
+
+      .delivery-options .whatsapp {
+         background-color: #25D366;
+      }
+
+      .availability {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin: 10px 0;
+      }
+
+      .availability .status {
+         color: #000;
+         font-size: 14px;
+         font-weight: 500;
+      }
+
+      .availability select {
+         font-size: 14px;
+         color: #888;
+         border: none;
+         background: none;
+      }
+
+      .search-bar {
+         display: flex;
+         align-items: center;
+         padding: 10px;
+         background-color: #f5f5f5;
+         border-radius: 5px;
+         margin: 20px 0;
+      }
+
+      .search-bar input {
+         flex: 1;
+         border: none;
+         background: none;
+         font-size: 14px;
+         padding: 5px;
+      }
+
+      .search-bar i {
+         color: #888;
+      }
+
+      .categories {
+         display: flex;
+         overflow-x: auto;
+         margin: 20px 0;
+      }
+
+      .categories .category {
+         text-align: center;
+         flex: 0 0 25%;
+         margin: 5px;
+         cursor: pointer;
+      }
+
+      .categories .category img {
+         width: 50px;
+         height: 50px;
+         border-radius: 50%;
+      }
+
+      .categories .category p {
+         font-size: 12px;
+         color: #888;
+      }
+
+      .section {
+         margin: 20px 0;
+      }
+
+      .section h2 {
+         font-size: 18px;
+         font-weight: 700;
+         margin: 0 0 10px 0;
+      }
+
+      .item {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 10px;
+         background-color: #fff;
+         border-radius: 5px;
+         margin: 10px 0;
+         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .item img {
+         width: 50px;
+         height: 50px;
+         border-radius: 5px;
+      }
+
+      .item .details {
+         flex: 1;
+         margin-left: 10px;
+      }
+
+      .item .details h3 {
+         margin: 0;
+         font-size: 14px;
+         font-weight: 500;
+      }
+
+      .item .details p {
+         margin: 5px 0;
+         font-size: 12px;
+         color: #888;
+      }
+
+      .item .price {
+         font-size: 14px;
+         font-weight: 700;
+         color: #ff6f61;
+      }
+
+      .footer {
+         text-align: center;
+         margin: 20px 0;
+      }
+
+      .footer a {
+         color: #000;
+         text-decoration: none;
+         margin: 0 10px;
+      }
+
+      .footer p {
+         font-size: 12px;
+         color: #888;
+      }
+   </style>
+   <script>
+      function showSection(sectionId) {
+         // Hide all sections
+         document.querySelectorAll('.section').forEach(section => {
+            section.style.display = 'none';
+         });
+
+         // Show the selected section
+         document.getElementById(sectionId).style.display = 'block';
+      }
+
+      function searchProducts() {
+         const input = document.getElementById('searchInput').value.toLowerCase();
+         const items = document.querySelectorAll('.item');
+
+         items.forEach(item => {
+            const itemName = item.querySelector('.details h3').textContent.toLowerCase();
+            if (itemName.includes(input)) {
+               item.style.display = 'flex';
+            } else {
+               item.style.display = 'none';
+            }
+         });
+      }
+
+      function changeLanguage(language) {
+         // Implement language change logic here
+         alert('Language changed to: ' + language);
+      }
+
+      window.onscroll = function () {
+         const backToTopButton = document.getElementById('backToTop');
+         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopButton.style.display = 'block';
+         } else {
+            backToTopButton.style.display = 'none';
+         }
+      };
+
+      function backToTop() {
+         document.body.scrollTop = 0;
+         document.documentElement.scrollTop = 0;
+      }
+   </script>
+</head>
+
+<body>
+   <div class="container">
+      <div class="header">
+         <img alt="Jardin de Invierno Logo" class="logo" height="50" src="./img/logoJardinInvierno.jpg" width="50" />
+         <div class="title">
+            <h1>
+               Jardin de Invierno Restaurante
+            </h1>
+            <p>
+               By Loi Suites Recoleta Hotel
+            </p>
+         </div>
+         <img alt="Header Background" class="background"
+            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/ec/24/df/jardin-de-invierno.jpg?w=700&amp;h=-1&amp;s=1" />
+         <div class="language-selector">
+            <button>
+               <img alt="Language" height="20"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/1200px-Flag_of_Spain.svg.png"
+                  width="30" />
+            </button>
+            <div class="language-selector-content">
+               <button onclick="changeLanguage('es')">
+                  <img alt="Español" height="20"
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/1200px-Flag_of_Spain.svg.png"
+                     width="30" />
+               </button>
+               <button onclick="changeLanguage('en')">
+                  <img alt="English" height="20"
+                     src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" width="30" />
+               </button>
+               <button onclick="changeLanguage('pt')">
+                  <img alt="Português" height="20"
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1200px-Flag_of_Brazil.svg.png"
+                     width="30" />
+               </button>
+            </div>
+         </div>
+      </div>
+      <div class="delivery-options">
+         <a class="reserve" href="https://jardindeinvierno.meitre.com/" target="_blank">
+            Reservar
+         </a>
+         <a class="whatsapp" href="https://wa.me/5491158027699" target="_blank">
+            <i class="fab fa-whatsapp">
+            </i>
+            Whatsapp
+         </a>
+      </div>
+      <div class="availability">
+         <span class="status">
+            Horarios
+         </span>
+         <select>
+            <option>
+               Almuerzo: Lunes a Domingos de 12:30 a 15:30
+            </option>
+            <option>
+               Merienda: Lunes a Domingos de 16:30 a 19:00
+            </option>
+            <option>
+               Cena: Lunes a Domingos de 20:00 a 23:30
+            </option>
+         </select>
+      </div>
+      <div class="search-bar">
+         <i class="fas fa-search">
+         </i>
+         <input id="searchInput" oninput="searchProducts()" placeholder="Buscar productos por nombre" type="text" />
+      </div>
+      <div class="categories">
+         <div class="category" onclick="showSection('entradas')">
+            <img alt="Entradas" height="50" src="./img/entradas.png" width="50" />
+            <p>
+               Entradas
+            </p>
+         </div>
+         <div class="category" onclick="showSection('ensaladas')">
+            <img alt="Ensaladas" height="50" src="./img/ensalada.png" width="50" />
+            <p>
+               Ensaladas
+            </p>
+         </div>
+         <div class="category" onclick="showSection('grill-loisuites')">
+            <img alt="Grill Loisuites" height="50" src="./img/grill.png" width="50" />
+            <p>
+               Grill Loisuites
+            </p>
+         </div>
+         <div class="category" onclick="showSection('principales')">
+            <img alt="Principales" height="50" src="./img/principal.png" width="50" />
+            <p>
+               Principales
+            </p>
+         </div>
+         <div class="category" onclick="showSection('menu-infantil')">
+            <img alt="Menu Infantil" height="50" src="./img/menu-niño.png" width="50" />
+            <p>
+               Menu Infantil
+            </p>
+         </div>
+         <div class="category" onclick="showSection('postres')">
+            <img alt="Postres" height="50" src="./img/postres.png" width="50" />
+            <p>
+               Postres
+            </p>
+         </div>
+         <div class="category" onclick="showSection('pastas-frescas')">
+            <img alt="Pastas Frescas" height="50" src="./img/pastas.png" width="50" />
+            <p>
+               Pastas Frescas
+            </p>
+         </div>
+         <div class="category" onclick="showSection('bebidas')">
+            <img alt="Bebidas" height="50" src="./img/bebidas.png" width="50" />
+            <p>
+               Bebidas
+            </p>
+         </div>
+         <div class="category" onclick="showSection('cafeteria')">
+            <img alt="Cafeteria" height="50" src="./img/cafeteria.png" width="50" />
+            <p>
+               Cafeteria
+            </p>
+         </div>
+         <div class="category" onclick="showSection('vinos')">
+            <img alt="Vinos" height="50" src="./img/vino.png" width="50" />
+            <p>
+               Vinos
+            </p>
+         </div>
+         <div class="category" onclick="showSection('cocktail')">
+            <img alt="Cocktail" height="50" src="./img/cocktail.png" width="50" />
+            <p>
+               Cocktail
+            </p>
+         </div>
+      </div>
+      <section>
+         <div class="section" id="entradas">
+            <h2>
+               Entradas
+            </h2>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Bombas de Salmon
+                  </h3>
+                  <p>
+                     Salmon y mozzarella, rebozadas en panko, con salsa de soja
+                  </p>
+                  <span class="price">
+                     Desde $ 5.700,00
+                  </span>
+               </div>
+               <img alt="Image of Bombas de Salmon" height="50"
+                  src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
+                  width="50" />
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Chef's Special
+                  </h3>
+                  <p>
+                     Plato del día, bebida sin alcohol, shot dulce, café o té. No se aplican descuentos. Disponible de
+                     lunes a sábado.
+                  </p>
+                  <span class="price">
+                     ARS 20,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Empanadas Carne con salsa criolla
+                  </h3>
+                  <p>
+                     Vacío y provoleta
+                  </p>
+                  <span class="price">
+                     ARS 4,100.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Empanadas con salsa criolla
+                  </h3>
+                  <p>
+                     Salmón con olivas y alcaparras
+                  </p>
+                  <span class="price">
+                     ARS 4,100.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Empanadas con salsa criolla
+                  </h3>
+                  <p>
+                     Caprese
+                  </p>
+                  <span class="price">
+                     ARS 3,100.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Ceviche templado de pesca del día
+                  </h3>
+                  <p>
+                     Con leche de tigre, mango, tomate concasse, jengibre y maíz canchita
+                  </p>
+                  <span class="price">
+                     ARS 15,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Triología de croquetas
+                  </h3>
+                  <p>
+                     De tapa de asado braseada (2), langostinos patagónicos (2) y hongos con provolone (2) con dips de
+                     salsa brava, alioli de cilantro y mayonesa de wasabi
+                  </p>
+                  <span class="price">
+                     ARS 13,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Sopa oriental
+                  </h3>
+                  <p>
+                     Con akusay, pak choi, kale, queso tofu, zanahoria, verdeo, hongos portobello, fideos de arroz y
+                     huevo poche
+                  </p>
+                  <span class="price">
+                     ARS 13,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Mollejas
+                  </h3>
+                  <p>
+                     con papas españolas, echalots y tomates asados, peperonata, cremoso de gruyere y alioli ahumado de
+                     perejil
+                  </p>
+                  <span class="price">
+                     ARS 12,900.00
+                  </span>
+               </div>
+            </div>
+      </section>
+      <section>
+         <div class="section" id="ensaladas">
+            <h2>
+               Ensaladas
+            </h2>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Ensalada Mediterránea
+                  </h3>
+                  <p>
+                     Mix de verdes, rúcula, cherry, tomate asado, bocconcinos en panko, jamón serrano, hongos salteados
+                     y vinagreta balsámica con miel
+                  </p>
+                  <span class="price">
+                     ARS 11,900.00
+                  </span>
+               </div>
+               <img alt="Image of Bombas de Salmon" height="50"
+                  src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
+                  width="50" />
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Ensalada tibia de langostinos
+                  </h3>
+                  <p>
+                     Langostinos Patagónicos, guacamole, couscous, mix de verdes, tomate cherry, sésamo y cebolla morada
+                  </p>
+                  <span class="price">
+                     ARS 13,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Ensalada Caesar de pollo
+                  </h3>
+                  <p>
+                     Hojas verdes, queso regianto, croutones , pollo , panceta y aderezo
+                  </p>
+                  <span class="price">
+                     ARS 8,500.00
+                  </span>
+               </div>
+            </div>
+      </section>
+      <section>
+         <div class="section" id="grill-loisuites">
+            <h2>
+               Grill Loi Suites
+            </h2>
+            <p class="item">
+               Todas las carnes y pescados van acompañadas con una guarnición, Todos los productos son cocinados en el
+               grill al momento, por esto pueden demorar hasta 20´ o más en casos de bifes bien cocidos
+            </p>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Suprema de pollo
+                  </h3>
+                  <p>
+                     Gluten free
+                  </p>
+                  <span class="price">
+                     ARS 8,900.00
+                  </span>
+               </div>
+               <img alt="Image of Bombas de Salmon" height="50"
+                  src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
+                  width="50" />
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Brochetas de pollo
+                  </h3>
+                  <span class="price">
+                     ARS 12,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Brochetas de solomillo de cerdo
+                  </h3>
+                  <span class="price">
+                     ARS 16,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Ojo de bife 300 grs.
+                  </h3>
+                  <p>
+                     Gluten free
+                  </p>
+                  <span class="price">
+                     ARS 19,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Pesca del día ( consultar con el camarero)
+                  </h3>
+                  <P>
+                     Gluten free
+                  </P>
+                  <span class="price">
+                     ARS 15,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Salmón rosado
+                  </h3>
+                  <p>
+                     Gluten free
+                  </p>
+                  <span class="price">
+                     ARS 23,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Guarniciones, una a elegir
+                  </h3>
+                  <p>
+                     Parrillada de verduras
+                     / Puré de calabaza
+                     / Puré de papas
+                     / Papas fritas
+
+                  </p>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Guarnición extra
+                  </h3>
+                  <p>
+                     Parrillada de verduras / Puré de calabaza / Puré de papas Papas fritas
+                     / Ensalada con tres ingredientes a elección
+                     Tomate cherry, mix de verdes, huevo duro, zanahoria, cebolla morada, remolacha, crutones,
+                     parmesano, espinacas, rucula y nuez
+
+                  </p>
+                  <span class="price">
+                     ARS 6,900.00
+                  </span>
+               </div>
+            </div>
+      </section>
+      <section>
+         <div class="section" id="principales">
+            <h2>
+               Principales
+            </h2>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Ojo de bife marinado
+                  </h3>
+                  <p>
+                     con salsa Malbec, papas asadas con duxelle de hongos y vegetales glaseados
+                  </p>
+                  <span class="price">
+                     ARS 29,900.00
+                  </span>
+               </div>
+               <img alt="Image of Bombas de Salmon" height="50"
+                  src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
+                  width="50" />
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Muslo de ave relleno de espinacas
+                  </h3>
+                  <p>
+                     Con mousseline de zanahoria, papas fondant y salsa de Dijón y miel
+                     Gluten free
+
+                  </p>
+                  <span class="price">
+                     ARS 28,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Cordero braseado
+                  </h3>
+                  <p>
+                     con micro pisto, papa rösti y jugo de cocción con pimienta rosa
+                  </p>
+                  <span class="price">
+                     ARS 29,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Salmón laqueado
+                  </h3>
+                  <p>
+                     con teriyaki, crema de curry, wok de vegetales thai y arroz basmati
+                     Gluten free
+
+                  </p>
+                  <span class="price">
+                     ARS 29,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Pesca del día gratinada
+                  </h3>
+                  <p>
+                     con salsa de queso azul, cremoso de repollo, salteado de arvejas, mini vegetales y cherrys
+                  </p>
+                  <span class="price">
+                     ARS 22,000.00
+                  </span>
+               </div>
+            </div>
+      </section>
+
+      <section>
+         <div class="section" id="menu-infantil">
+            <h2>
+               Manu Infantil
+            </h2>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Cazuelita de gnocchi de papa a la crema
+                  </h3>
+                  <span class="price">
+                     ARS 9,000.00
+                  </span>
+               </div>
+               <img alt="Image of Bombas de Salmon" height="50"
+                  src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
+                  width="50" />
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Penne rigate
+                  </h3>
+                  <p>
+                     con salsa pomodoro
+                  </p>
+                  <span class="price">
+                     ARS 7,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Milanesa de lomo
+                  </h3>
+                  <p>
+                     con papas fritas
+                  </p>
+                  <span class="price">
+                     ARS 10,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Pizza con tomate, mozzarella y albahaca
+                  </h3>
+                  <span class="price">
+                     ARS 7,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Extras pizzas
+                  </h3>
+                  <p>
+                     jamón, tomate, hongos, etc.
+                  </p>
+                  <span class="price">
+                     ARS 2,200.00
+                  </span>
+               </div>
+            </div>
+      </section>
+
+      <section>
+         <div class="section" id="postres">
+            <h2>
+               Postres
+            </h2>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Paris brest
+                  </h3>
+                  <p>
+                     rellena de mousseline de café y corazón de toffee
+                  </p>
+                  <span class="price">
+                     ARS 5,500.00
+                  </span>
+               </div>
+               <img alt="Image of Bombas de Salmon" height="50"
+                  src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
+                  width="50" />
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Crème brûleé de naranja
+                  </h3>
+                  <p>
+                     con praline de nuez
+                     Gluten free
+                  </p>
+                  <span class="price">
+                     ARS 5,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Deconstrucción de financier tropical
+                  </h3>
+                  <span class="price">
+                     ARS 6,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Torta marmolada
+                  </h3>
+                  <p>
+                     de dulce de leche y nutella
+                  </p>
+                  <span class="price">
+                     ARS 6,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Marquise vegana
+                  </h3>
+                  <p>
+                     jcon salsa de caramelo y frutos secos
+                  </p>
+                  <span class="price">
+                     ARS 7,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Bavaroise de mascarpone y frutos rojos
+                  </h3>
+                  <p>
+                     Gluten free
+                  </p>
+                  <span class="price">
+                     ARS 8,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Consulte por nuetros helados
+                  </h3>
+                  <span class="price">
+                     ARS 5,900.00
+                  </span>
+               </div>
+            </div>
+      </section>
+
+      <section>
+         <div class="section" id="pastas-frescas">
+            <h2>
+               Pastas Frescas
+            </h2>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Sorrentinos de espinacas y mozzarella
+                  </h3>
+                  <p>
+                     con salsa pomodoro, verdeo, cherrys y albahaca
+                  </p>
+                  <span class="price">
+                     ARS 11,500.00
+                  </span>
+               </div>
+               <img alt="Image of Bombas de Salmon" height="50"
+                  src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
+                  width="50" />
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Ravioli de cordero
+                  </h3>
+                  <p>
+                     con salsa española de hongos portobello, almendras y menta
+                  </p>
+                  <span class="price">
+                     ARS 15,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Malfatti de calabaza
+                  </h3>
+                  <p>
+                     con crema de parmesano, avellanas tostadas y salvia
+                  </p>
+                  <span class="price">
+                     ARS 13,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Gnocchi con calamares y mejillones
+                  </h3>
+                  <p>
+                     en salsa pomodoro azafranada, lima y cilantro
+                  </p>
+                  <span class="price">
+                     ARS 16,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Tagliatelle de remolacha
+                  </h3>
+                  <p>
+                     con crema de espárragos, prosciutto y huevo poche
+                  </p>
+                  <span class="price">
+                     ARS 15,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Risotto al nero di sepia
+                  </h3>
+                  <p>
+                     con langostinos crocantes y alioli de ciboulette
+                     Gluten free
+
+                  </p>
+                  <span class="price">
+                     ARS 20,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Risotto de hongos de pino
+                  </h3>
+                  <p>
+                     con pesto de rucula, tomates confitados y champiñones
+                     Gluten free
+
+                  </p>
+                  <span class="price">
+                     ARS 13,500.00
+                  </span>
+               </div>
+            </div>
+      </section>
+
+      <section>
+         <div class="section" id="bebidas">
+            <h2>
+               Bebidas
+            </h2>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Agua mineral 500 cc
+                  </h3>
+                  <span class="price">
+                     ARS 2,800.00
+                  </span>
+               </div>
+               <img alt="Image of Bombas de Salmon" height="50"
+                  src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
+                  width="50" />
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Gaseosas 350 cc
+                  </h3>
+                  <span class="price">
+                     ARS 3,200.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Limonada
+                  </h3>
+                  <span class="price">
+                     ARS 4,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Café
+                  </h3>
+                  <span class="price">
+                     ARS 3,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Café doble
+                  </h3>
+                  <span class="price">
+                     ARS 3,800.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Té
+                  </h3>
+                  <span class="price">
+                     ARS 3,000.00
+                  </span>
+               </div>
+            </div>
+      </section>
+
+      <section>
+         <div class="section" id="cafeteria">
+            <h2>
+               Cafeteria
+            </h2>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Café Nespresso
+                  </h3>
+                  <span class="price">
+                     ARS 3,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Café Nespresso con leche
+                  </h3>
+                  <span class="price">
+                     ARS 3,800.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Café Nespresso en jarrito
+                  </h3>
+                  <span class="price">
+                     ARS 3,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Café Nespresso doble
+                  </h3>
+                  <span class="price">
+                     ARS 3,800.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Cappuccino
+                  </h3>
+                  <span class="price">
+                     ARS 4,200.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Chocolate o Submarino // Hot chocolate
+                  </h3>
+                  <span class="price">
+                     ARS 4,200.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Té e infusiones
+                  </h3>
+                  <span class="price">
+                     ARS 3,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Té helado
+                     <span class="price">
+                        ARS 3,800.00
+                     </span>
+               </div>
+            </div>
+      </section>
+
+      <section>
+         <div class="section" id="vinos">
+            <h2>
+               Vinos - Malbec
+            </h2>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Rutini Dominio
+                  </h3>
+                  <P>
+                     Bga. La Rural - Mendoza
+                  </P>
+                  <span class="price">
+                     ARS 31,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Salentein Primus (Bga. Salentein - Mendoza)
+                  </h3>
+                  <span class="price">
+                     ARS 61,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Angélica Zapata (Bga. Catena Zapata - Mendoza)
+                  </h3>
+                  <span class="price">
+                     ARS 53,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Salentein Single Vineyard (Bga. Salentein - Mendoza)
+                  </h3>
+                  <span class="price">
+                     ARS 46,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Rutini (Bga. La Rural - Mendoza)
+                  </h3>
+                  <span class="price">
+                     ARS 44,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Alta Vista Gran Reserva Terroir (Bga. Alta Vista - Mendoza)
+                  </h3>
+                  <span class="price">
+                     ARS 34,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Salentein Numina (Bga. Salentein - Mendoza)
+                  </h3>
+                  <span class="price">
+                     ARS 20,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Escorihuela Gascón (Bga. Escorihuela - Mendoza)
+                  </h3>
+                  <span class="price">
+                     ARS 18,600.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Saint Felicien (Bga. Catena Zapata - Mendoza)
+                  </h3>
+                  <span class="price">
+                     ARS 17,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Álamos (Bga. Catena Zapata - Mendoza)
+                  </h3>
+                  <span class="price">
+                     ARS 17,000.00
+                  </span>
+               </div>
+            </div>
+      </section>
+
+      <section>
+         <div class="section" id="cocktail">
+            <h2>
+               Cocktail
+            </h2>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Gin Tonic herederos
+                  </h3>
+                  <span class="price">
+                     ARS 8,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Caipirinha
+                  </h3>
+                  <span class="price">
+                     ARS 8,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Caipiroska
+                  </h3>
+                  <span class="price">
+                     ARS 8,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Margarita
+                  </h3>
+                  <span class="price">
+                     ARS 8,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Sex on beach
+                  </h3>
+                  <span class="price">
+                     ARS 8,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Martini expresso
+                  </h3>
+                  <span class="price">
+                     ARS 8,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Dry Martini
+                  </h3>
+                  <span class="price">
+                     ARS 9,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Pisco Sour
+                  </h3>
+                  <span class="price">
+                     ARS 8,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Cuba libre
+                  </h3>
+                  <span class="price">
+                     ARS 8,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Whisky sour
+                  </h3>
+                  <span class="price">
+                     ARS 9,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Mojito
+                  </h3>
+                  <span class="price">
+                     ARS 8,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Piña Colada
+                  </h3>
+                  <span class="price">
+                     ARS 8,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Manhattan
+                  </h3>
+                  <span class="price">
+                     ARS 8,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Tom Collins
+                  </h3>
+                  <span class="price">
+                     ARS 8,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Gin Tonic Tanqueray / Beefeater
+                  </h3>
+                  <span class="price">
+                     ARS 9,000.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Gin Tonic Bombay
+                  </h3>
+                  <span class="price">
+                     ARS 9,900.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Negroni con Bombay
+                  </h3>
+                  <span class="price">
+                     ARS 10,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     Old Fashioned
+                  </h3>
+                  <span class="price">
+                     ARS 10,500.00
+                  </span>
+               </div>
+            </div>
+            <div class="item">
+               <div class="details">
+                  <h3>
+                     White Russian
+                  </h3>
+                  <span class="price">
+                     ARS 13,200.00
+                  </span>
+               </div>
+            </div>
+      </section>
+      <div class="footer">
+         <a href="https://www.instagram.com/jardindeinviernorestaurante/" target="_blank">
+            <i class="fab fa-instagram"></i>
+         </a>
+         <p>Derechos reservados . Power by Matias Quintana</p>
+      </div>
+   </div>
+   <button id="backToTop" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
+</body>
+
+</html>
