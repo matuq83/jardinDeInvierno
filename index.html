@@ -7,9 +7,7 @@
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet" />
    <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
-   
 </head>
-
 <body>
    <div class="container">
       <div class="header">
@@ -129,7 +127,7 @@
             </p>
          </div>
          <div class="category" onclick="showSection('cafeteria')">
-            <img alt="Cafeteria" height="50" src="./img/cafeteria.png" width="50" />
+            <img alt="Cafeteria" height="50" src="./CSS/img/cafeteria.png" width="50" />
             <p>
                Cafeteria
             </p>
@@ -148,6 +146,7 @@
          </div>
       </div>
    <!--ENTRADAS -->
+   <section>
          <div class="section" id="entradas">
             <h2>
                Entradas
@@ -178,6 +177,7 @@
                      ARS 4,100.00
                   </span>
                   </div>
+                  <div>
                   <img alt="Image of Bombas de Salmon" height="50"
                   src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
                   width="50" />
@@ -264,7 +264,10 @@
                   </span>
                </div>
             </div>
+         </div>
+         </section>
    <!--ENSALADAS-->
+   <section>
          <div class="section" id="ensaladas">
             <h2>
                Ensaladas
@@ -312,8 +315,10 @@
                   </span>
                </div>
             </div>
+         </section>
    <!--GRILL-->
-   <div class="section" id="grill">
+   <section>
+   <div class="section" id="grill-loisuites">
             <h2>
                Grill Loi Suites
             </h2>
@@ -427,7 +432,10 @@
                   </span>
                </div>
             </div>
+   </div>
+   </section>
    <!-- PRINCIPALES -->
+   <section>
          <div class="section" id="principales">
             <h2>
                Principales
@@ -504,7 +512,10 @@
                   </span>
                </div>
             </div>
+         </div>
+    </section>
    <!--MENU INFANTIL -->
+   <section>
          <div class="section" id="menu-infantil">
             <h2>
                Manu Infantil
@@ -568,7 +579,10 @@
                   </span>
                </div>
             </div>
+            </div>
+         </section>
    <!--POSTRES -->
+   <section>
          <div class="section" id="postres">
             <h2>
                Postres
@@ -662,7 +676,10 @@
                   </span>
                </div>
             </div>
+         </div>
+      </section>
    <!--PASTAS FRESCAS -->
+   <section>
          <div class="section" id="pastas-frescas">
             <h2>
                Pastas Frescas
@@ -765,7 +782,10 @@
                   </span>
                </div>
             </div>
+         </div>
+      </section>
             <!--BEBIDAS -->
+      <section>
          <div class="section" id="bebidas">
             <h2>
                Bebidas
@@ -833,7 +853,10 @@
                   </span>
                </div>
             </div>
+            </div>
+         </section>
       <!-- CAFETERIA -->
+       <section>
          <div class="section" id="cafeteria">
             <h2>
                Cafeteria
@@ -917,7 +940,10 @@
                      </span>
                </div>
             </div>
+         </div>
+      </section>
       <!-- VINOS -->
+       <section>
          <div class="section" id="vinos">
             <h2>
                Vinos - Malbec
@@ -1025,7 +1051,10 @@
                   </span>
                </div>
             </div>
+         </div>
+       </section>
       <!-- COCKTAIL -->
+       <section>
          <div class="section" id="cocktail">
             <h2>
                Cocktail
@@ -1220,15 +1249,19 @@
                   </span>
                </div>
             </div>
+         </div>
+       </section>
       <!--FOOTER -->
+      <section>
       <div class="footer">
          <a href="https://www.instagram.com/jardindeinviernorestaurante/" target="_blank">
             <i class="fab fa-instagram"></i>
          </a>
          <p>Derechos reservados . Power by Matias Quintana</p>
       </div>
-   </div>
+      </section>
    <button id="backToTop" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
+   
    <script src="./script.js"></script>
 </body>
 </html>
