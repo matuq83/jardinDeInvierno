@@ -8,65 +8,12 @@
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet" />
    <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
 </head>
+
 <body>
-   <script>
-      function showSection(sectionId) {
-  // Hide all sections
-  document.querySelectorAll(".section").forEach((section) => {
-    section.style.display = "none";
-  });
-
-  // Show the selected section
-  const selectedSection = document.getElementById(sectionId);
-  selectedSection.style.display = "block";
-
-  // Clear search input and reset visibility of items within the selected section
-  document.getElementById("searchInput").value = "";
-  selectedSection.querySelectorAll(".item").forEach((item) => {
-    item.style.display = "flex"; // Show all items initially
-  });
-}
-
-function searchProducts() {
-  const input = document.getElementById("searchInput").value.toLowerCase();
-  const visibleSection = document.querySelector(".section[style*='block']");
-
-  if (visibleSection) {
-    const items = visibleSection.querySelectorAll(".item");
-
-    items.forEach((item) => {
-      const itemName = item.querySelector(".details h3").textContent.toLowerCase();
-      if (itemName.includes(input)) {
-        item.style.display = "flex"; // Show item if it matches search
-      } else {
-        item.style.display = "none"; // Hide item if it doesn't match search
-      }
-    });
-  }
-}
-
-function changeLanguage(language) {
-  alert("Language changed to: " + language);
-}
-
-window.onscroll = function () {
-  const backToTopButton = document.getElementById("backToTop");
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    backToTopButton.style.display = "block";
-  } else {
-    backToTopButton.style.display = "none";
-  }
-};
-
-function backToTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-
-   </script>
    <div class="container">
       <div class="header">
-         <img alt="Jardin de Invierno Logo" class="logo" height="50" src="./CSS/img/logoJardinInvierno.jpg" width="50" />
+         <img alt="Jardin de Invierno Logo" class="logo" height="50" src="./CSS/img/logoJardinInvierno.jpg"
+            width="50" />
          <div class="title">
             <h1>
                Jardin de Invierno Restaurante
@@ -75,8 +22,7 @@ function backToTop() {
                By Loi Suites Recoleta Hotel
             </p>
          </div>
-         <img alt="Header Background" class="background"
-            src="./CSS/img/jardin-de-invierno.jpg" />
+         <img alt="Header Background" class="background" src="./CSS/img/jardin-de-invierno.jpg" />
          <div class="language-selector">
             <button>
                <img alt="Language" height="20"
@@ -200,8 +146,8 @@ function backToTop() {
             </p>
          </div>
       </div>
-   <!--ENTRADAS -->
-   <section>
+      <!--ENTRADAS -->
+      <section>
          <div class="section" id="entradas">
             <h2>
                Entradas
@@ -231,11 +177,11 @@ function backToTop() {
                   <span class="price">
                      ARS 4,100.00
                   </span>
-                  </div>
-                  <div>
+               </div>
+               <div>
                   <img alt="Image of Bombas de Salmon" height="50"
-                  src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
-                  width="50" />
+                     src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
+                     width="50" />
                </div>
             </div>
             <div class="item">
@@ -320,9 +266,9 @@ function backToTop() {
                </div>
             </div>
          </div>
-         </section>
-   <!--ENSALADAS-->
-   <section>
+      </section>
+      <!--ENSALADAS-->
+      <section>
          <div class="section" id="ensaladas">
             <h2>
                Ensaladas
@@ -370,10 +316,10 @@ function backToTop() {
                   </span>
                </div>
             </div>
-         </section>
-   <!--GRILL-->
-   <section>
-   <div class="section" id="grill-loisuites">
+      </section>
+      <!--GRILL-->
+      <section>
+         <div class="section" id="grill-loisuites">
             <h2>
                Grill Loi Suites
             </h2>
@@ -487,10 +433,10 @@ function backToTop() {
                   </span>
                </div>
             </div>
-   </div>
-   </section>
-   <!-- PRINCIPALES -->
-   <section>
+         </div>
+      </section>
+      <!-- PRINCIPALES -->
+      <section>
          <div class="section" id="principales">
             <h2>
                Principales
@@ -568,9 +514,9 @@ function backToTop() {
                </div>
             </div>
          </div>
-    </section>
-   <!--MENU INFANTIL -->
-   <section>
+      </section>
+      <!--MENU INFANTIL -->
+      <section>
          <div class="section" id="menu-infantil">
             <h2>
                Manu Infantil
@@ -634,10 +580,10 @@ function backToTop() {
                   </span>
                </div>
             </div>
-            </div>
-         </section>
-   <!--POSTRES -->
-   <section>
+         </div>
+      </section>
+      <!--POSTRES -->
+      <section>
          <div class="section" id="postres">
             <h2>
                Postres
@@ -733,8 +679,8 @@ function backToTop() {
             </div>
          </div>
       </section>
-   <!--PASTAS FRESCAS -->
-   <section>
+      <!--PASTAS FRESCAS -->
+      <section>
          <div class="section" id="pastas-frescas">
             <h2>
                Pastas Frescas
@@ -839,7 +785,7 @@ function backToTop() {
             </div>
          </div>
       </section>
-            <!--BEBIDAS -->
+      <!--BEBIDAS -->
       <section>
          <div class="section" id="bebidas">
             <h2>
@@ -908,10 +854,10 @@ function backToTop() {
                   </span>
                </div>
             </div>
-            </div>
-         </section>
+         </div>
+      </section>
       <!-- CAFETERIA -->
-       <section>
+      <section>
          <div class="section" id="cafeteria">
             <h2>
                Cafeteria
@@ -998,7 +944,7 @@ function backToTop() {
          </div>
       </section>
       <!-- VINOS -->
-       <section>
+      <section>
          <div class="section" id="vinos">
             <h2>
                Vinos - Malbec
@@ -1107,9 +1053,9 @@ function backToTop() {
                </div>
             </div>
          </div>
-       </section>
+      </section>
       <!-- COCKTAIL -->
-       <section>
+      <section>
          <div class="section" id="cocktail">
             <h2>
                Cocktail
@@ -1305,18 +1251,19 @@ function backToTop() {
                </div>
             </div>
          </div>
-       </section>
+      </section>
       <!--FOOTER -->
       <section>
-      <div class="footer">
-         <a href="https://www.instagram.com/jardindeinviernorestaurante/" target="_blank">
-            <i class="fab fa-instagram"></i>
-         </a>
-         <p>Derechos reservados . Power by Matias Quintana</p>
-      </div>
+         <div class="footer">
+            <a href="https://www.instagram.com/jardindeinviernorestaurante/" target="_blank">
+               <i class="fab fa-instagram"></i>
+            </a>
+            <p>Derechos reservados . Power by Matias Quintana</p>
+         </div>
       </section>
-   <button id="backToTop" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
-   
-   <script src="./script.js"></script>
+      <button id="backToTop" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
+
+      <script src="./script.js"></script>
 </body>
+
 </html>
