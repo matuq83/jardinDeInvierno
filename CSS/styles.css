@@ -38,14 +38,14 @@ body {
 
 .header .title h1 {
    margin: 0;
-   font-size: 18px;
+   font-size: 20px;
    font-weight: 700;
    color: white;
 }
 
 .header .title p {
    margin: 0;
-   font-size: 14px;
+   font-size: 16px;
    color: #e7d1d1;
 }
 
@@ -287,7 +287,7 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
    .header img.background {
       height: 120px;
    }
@@ -317,3 +317,41 @@ body {
       flex: 0 0 33%;
    }
 }
+   */
+
+   @media (max-width: 768px) {
+      .header .title h1 {
+         font-size: 20px; /* Aumentado para mejor legibilidad */
+      }
+   
+      .header .title p {
+         font-size: 18px; /* Aumentado para mejor legibilidad */
+      }
+   
+      .item .details h3 {
+         font-size: 16px; /* Aumentado para los nombres de los platos */
+      }
+   
+      .item .details p {
+         font-size: 14px; /* Aumentado para las descripciones adicionales */
+      }
+   
+      .item .price {
+         font-size: 16px; /* Aumentado para el precio */
+      }
+   
+      .categories .category p {
+         font-size: 14px; /* Aumentado para los nombres de las categorías */
+      }
+   
+      .availability .status, 
+      .availability select, 
+      .delivery-options a {
+         font-size: 14px; /* Aumentado para otros textos pequeños */
+      }
+   
+      .footer p {
+         font-size: 14px; /* Aumentado para el texto en el pie de página */
+      }
+   }
+   
