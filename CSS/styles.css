@@ -108,6 +108,8 @@ body {
    flex-wrap: wrap;
 }
 
+.availability .status, 
+.availability select,
 .delivery-options a {
    flex: 1;
    padding: 12px 15px;
@@ -200,7 +202,7 @@ body {
 }
 
 .section h2 {
-   font-size: 18px;
+   font-size: 20px;
    font-weight: 700;
    margin: 0 0 10px 0;
 }
@@ -229,13 +231,13 @@ body {
 
 .item .details h3 {
    margin: 0;
-   font-size: 14px;
+   font-size: 16px;
    font-weight: 500;
 }
 
 .item .details p {
    margin: 5px 0;
-   font-size: 12px;
+   font-size: 14px;
    color: #888;
 }
 
@@ -286,40 +288,44 @@ body {
    color: #888;
 }
 
-
-   @media (max-width: 768px) {
-      .header .title h1 {
-         font-size: 20px; /* Aumentado para mejor legibilidad */
-      }
-   
-      .header .title p {
-         font-size: 18px; /* Aumentado para mejor legibilidad */
-      }
-   
-      .item .details h3 {
-         font-size: 16px; /* Aumentado para los nombres de los platos */
-      }
-   
-      .item .details p {
-         font-size: 14px; /* Aumentado para las descripciones adicionales */
-      }
-   
-      .item .price {
-         font-size: 16px; /* Aumentado para el precio */
-      }
-   
-      .categories .category p {
-         font-size: 14px; /* Aumentado para los nombres de las categorías */
-      }
-   
-      .availability .status, 
-      .availability select, 
-      .delivery-options a {
-         font-size: 14px; /* Aumentado para otros textos pequeños */
-      }
-   
-      .footer p {
-         font-size: 14px; /* Aumentado para el texto en el pie de página */
-      }
+@media (max-width: 768px) {
+   .header .title h1 {
+      font-size: 24px; /* Más grande para mayor legibilidad */
    }
-   
+
+   .header .title p {
+      font-size: 20px; /* Más grande para el subtítulo */
+   }
+
+   .item .details h3 {
+      font-size: 18px; /* Tamaño aumentado para los nombres de los platos */
+   }
+
+   .item .details p {
+      font-size: 16px; /* Tamaño aumentado para las descripciones adicionales */
+   }
+
+   .item .price {
+      font-size: 18px; /* Aumentado para el precio */
+   }
+
+   .categories .category p {
+      font-size: 16px; /* Aumentado para los nombres de las categorías */
+   }
+
+   .availability .status, 
+   .availability select, 
+   .delivery-options a {
+      font-size: 16px; /* Aumentado para otros textos pequeños */
+      padding: 12px 18px; /* Aumenta el padding en los botones */
+   }
+
+   .footer p {
+      font-size: 16px; /* Aumentado para el texto en el pie de página */
+   }
+
+   .search-bar input {
+      font-size: 16px; /* Ajustado para mejor legibilidad en el buscador */
+      padding: 10px; /* Aumenta el padding en el buscador */
+   }
+}
