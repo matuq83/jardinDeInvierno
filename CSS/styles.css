@@ -196,7 +196,8 @@ body {
 
 .categories .category p {
    font-size: 12px;
-   color: #888;
+   font-weight: bold;
+   color:#ff6f61;
 }
 
 .section {
@@ -204,8 +205,8 @@ body {
 }
 
 .section h2 {
-   font-size: 16px;
-   font-weight: 700;
+   font-size: 18px;
+   font-weight: bold;
    margin: 0 0 10px 0;
 }
 
@@ -234,7 +235,7 @@ body {
 
 .item .details h3 {
    margin: 0;
-   font-size: 14px;
+   font-size: 16px;
    font-weight: 500;
 }
 
@@ -365,11 +366,11 @@ body {
    }
 
    .item .details p {
-      font-size: 30PX;
+      font-size: 20PX;
    }
 
    .item .price {
-      font-size: 30px;
+      font-size: 20px;
    }
 
    .fa-instagram:before {
