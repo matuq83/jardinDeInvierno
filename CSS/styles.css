@@ -20,8 +20,8 @@ body {
 }
 
 .header img.logo {
-   width: 50px;
-   height: 50px;
+   width: 120px;
+   height: 120px;
    border-radius: 50%;
    position: absolute;
    top: 10px;
@@ -32,26 +32,27 @@ body {
 .header .title {
    position: absolute;
    top: 10px;
-   left: 70px;
+   left: 40px;
    z-index: 2;
 }
 
 .header .title h1 {
    margin: 0;
-   font-size: 24px;
+   margin-left: 90px;
+   font-size: 40px;
    font-weight: 700;
    color: white;
 }
 
 .header .title p {
    margin: 0;
-   font-size: 20px;
+   font-size: 26px;
    color: #e7d1d1;
 }
 
 .header img.background {
    width: 100%;
-   height: 150px;
+   height: 200px;
    object-fit: cover;
    border-radius: 5px;
    filter: contrast(50%);
@@ -141,12 +142,12 @@ body {
 
 .availability .status {
    color: #000;
-   font-size: 14px;
+   font-size: 16px; 
    font-weight: 500;
 }
 
 .availability select {
-   font-size: 14px;
+   font-size: 16px; 
    color: #888;
    border: none;
    background: none;
@@ -170,6 +171,7 @@ body {
 }
 
 .search-bar i {
+   width: 50px;
    color: #888;
 }
 
@@ -187,13 +189,13 @@ body {
 }
 
 .categories .category img {
-   width: 60px;
-   height: 60px;
-   border-radius: 50%;
+   width: 70px;
+   height: 70px;
+   /*border-radius: 50%;*/
 }
 
 .categories .category p {
-   font-size: 14px;
+   font-size: 12px;
    color: #888;
 }
 
@@ -202,12 +204,13 @@ body {
 }
 
 .section h2 {
-   font-size: 20px;
+   font-size: 16px;
    font-weight: 700;
    margin: 0 0 10px 0;
 }
 
 .item {
+   font-size: 14px;
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -219,9 +222,9 @@ body {
 }
 
 .item img {
-   width: 50px;
-   height: 50px;
-   border-radius: 5px;
+   width: 80px;
+   height: 80px;
+   border-radius: 10px;
 }
 
 .item .details {
@@ -231,13 +234,13 @@ body {
 
 .item .details h3 {
    margin: 0;
-   font-size: 16px;
+   font-size: 14px;
    font-weight: 500;
 }
 
 .item .details p {
    margin: 5px 0;
-   font-size: 14px;
+   font-size: 14;
    color: #888;
 }
 
@@ -284,48 +287,83 @@ body {
 }
 
 .footer p {
-   font-size: 16px;
+   font-size: 14px;
    color: #888;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 992px) {
+   .header img.background {
+      height: 200px;
+   }
+
    .header .title h1 {
-      font-size: 24px; /* Más grande para mayor legibilidad */
+      font-size: 50px;
    }
 
    .header .title p {
-      font-size: 20px; /* Más grande para el subtítulo */
+      font-size: 40px;
    }
 
-   .item .details h3 {
-      font-size: 18px; /* Tamaño aumentado para los nombres de los platos */
-   }
-
-   .item .details p {
-      font-size: 16px; /* Tamaño aumentado para las descripciones adicionales */
-   }
-
-   .item .price {
-      font-size: 18px; /* Aumentado para el precio */
-   }
-
-   .categories .category p {
-      font-size: 16px; /* Aumentado para los nombres de las categorías */
-   }
-
-   .availability .status, 
-   .availability select, 
    .delivery-options a {
-      font-size: 16px; /* Aumentado para otros textos pequeños */
-      padding: 12px 18px; /* Aumenta el padding en los botones */
+      font-size: 30px;
+      padding: 8px;
+      margin: 5px 0;
    }
 
-   .footer p {
-      font-size: 16px; /* Aumentado para el texto en el pie de página */
+   .availability .status, .availability select, .delivery-options a {
+      font-size: 40px;
+   }
+
+   .search-bar {
+      font-size: 30px;
    }
 
    .search-bar input {
-      font-size: 16px; /* Ajustado para mejor legibilidad en el buscador */
-      padding: 10px; /* Aumenta el padding en el buscador */
+      font-size: 30px;
+   }
+
+   .categories .category img {
+      height: 120px;
+      width: 120px;
+   }
+
+   .categories .category p {
+      font-size: 24px;
+   }
+
+   .section h2 {
+      font-size: 40px;
+   }
+
+   .item {
+      font-size: 28px;
+   }
+
+   .item img {
+      height: 120px;
+      width: 120px;
+   }
+
+   .item .details h3 {
+      font-size: 30px;
+   }
+
+   .item .details p {
+      font-size: 30PX;
+   }
+
+   .item .price {
+      font-size: 30px;
+   }
+
+   #backToTop {
+      width: 80px;
+      height: 80px;
+      bottom: 15px;
+      right: 15px;
+   }
+
+   .categories .category {
+      flex: 0 0 33%;
    }
 }
