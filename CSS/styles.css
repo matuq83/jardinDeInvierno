@@ -291,6 +291,7 @@ body {
 }
 
 .footer p {
+   margin-top: 60px;
    font-size: 14px;
    color: #888;
 }
