@@ -291,10 +291,11 @@ body {
 }
 
 .footer p {
-   margin-top: 60px;
+   margin-bottom: 60px;
    font-size: 14px;
    color: #888;
 }
+
 
 @media screen and (max-width: 992px) {
    .header img.background {
