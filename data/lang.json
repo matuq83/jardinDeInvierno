@@ -1,0 +1,82 @@
+{
+    "es": {
+      "header": {
+        "title": "Jardin de Invierno Restaurante",
+        "subtitle": "By Loi Suites Recoleta Hotel"
+      },
+      "availability": {
+        "status": "Horarios"
+      },
+      "search": {
+        "placeholder": "Buscar productos por nombre"
+      },
+      "categories": {
+        "entradas": "Entradas",
+        "ensaladas": "Ensaladas",
+        "grill-loisuites": "Grill Loisuites",
+        "principales": "Principales",
+        "menu-infantil": "Menu Infantil",
+        "postres": "Postres",
+        "pastas-frescas": "Pastas Frescas",
+        "bebidas": "Bebidas",
+        "cafeteria": "Cafeteria",
+        "vinos": "Vinos",
+        "cocktail": "Cocktail"
+      }
+    },
+    "en": {
+      "header": {
+        "title": "Winter Garden Restaurant",
+        "subtitle": "By Loi Suites Recoleta Hotel"
+      },
+      "availability": {
+        "status": "Schedule"
+      },
+      "search": {
+        "placeholder": "Search products by name"
+      },
+      "categories": {
+        "entradas": "Starters",
+        "ensaladas": "Salads",
+        "grill-loisuites": "Grill Loisuites",
+        "principales": "Main Courses",
+        "menu-infantil": "Kids Menu",
+        "postres": "Desserts",
+        "pastas-frescas": "Fresh Pasta",
+        "bebidas": "Drinks",
+        "cafeteria": "Coffee Shop",
+        "vinos": "Wines",
+        "cocktail": "Cocktail"
+      }
+    },
+    "pt": {
+      "header": {
+        "title": "Jardim de Inverno Restaurante",
+        "subtitle": "Por Loi Suites Recoleta Hotel"
+      },
+      "availability": {
+        "status": "Horários"
+      },
+      "search": {
+        "placeholder": "Pesquisar produtos por nome"
+      },
+      "categories": {
+        "entradas": "Entradas",
+        "ensaladas": "Saladas",
+        "grill-loisuites": "Grill Loisuites",
+        "principales": "Pratos Principais",
+        "menu-infantil": "Menu Infantil",
+        "postres": "Sobremesas",
+        "pastas-frescas": "Massas Frescas",
+        "bebidas": "Bebidas",
+        "cafeteria": "Cafeteria",
+        "vinos": "Vinhos",
+        "cocktail": "Cocktail"
+      }
+    },
+    "buttons": {
+      "reserve": "Reservar",
+      "whatsapp": "WhatsApp"
+    }
+  }
+  

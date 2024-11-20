@@ -275,6 +275,10 @@ body {
    transform: scale(1.1);
 }
 
+.fa-instagram:before {
+   font-size: 35px;
+}
+
 .footer {
    text-align: center;
    margin: 20px 0;
@@ -294,6 +298,16 @@ body {
 @media screen and (max-width: 992px) {
    .header img.background {
       height: 200px;
+   }
+
+   .language-selector button {
+      height: 70px;
+      width: 70px;
+   }
+
+   .language-selector button img {
+      height: 50px;
+      width: 50px;
    }
 
    .header .title h1 {
@@ -332,11 +346,11 @@ body {
    }
 
    .section h2 {
-      font-size: 40px;
+      font-size: 50px;
    }
 
    .item {
-      font-size: 28px;
+      font-size: 22px;
    }
 
    .item img {
@@ -356,6 +370,14 @@ body {
       font-size: 30px;
    }
 
+   .fa-instagram:before {
+      font-size: 50px;
+   }
+
+   .footer p {
+      font-size: 30px;
+   }
+
    #backToTop {
       width: 80px;
       height: 80px;
@@ -366,4 +388,5 @@ body {
    .categories .category {
       flex: 0 0 33%;
    }
+
 }

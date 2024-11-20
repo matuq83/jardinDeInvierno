@@ -14,10 +14,10 @@
       <div class="header">
          <img alt="Jardin de Invierno Logo" class="logo" src="./CSS/img/logoJardinInvierno.jpg" />
          <div class="title">
-            <h1>
+            <h1 data-key="header.title">
                Jardin de Invierno Restaurante
             </h1>
-            <p>
+            <p data-key="header.subtitle">
                By Loi Suites Recoleta Hotel
             </p>
          </div>
@@ -30,16 +30,16 @@
             </button>
             <div class="language-selector-content">
                <button onclick="changeLanguage('es')">
-                  <img alt="Español" height="20"
+                  <img alt="Bandera Española" height="20"
                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/1200px-Flag_of_Spain.svg.png"
                      width="30" />
                </button>
                <button onclick="changeLanguage('en')">
-                  <img alt="English" height="20"
+                  <img alt="US Flag" height="20"
                      src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" width="30" />
                </button>
                <button onclick="changeLanguage('pt')">
-                  <img alt="Português" height="20"
+                  <img alt="Bandeira do Brasil" height="20"
                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1200px-Flag_of_Brazil.svg.png"
                      width="30" />
                </button>
@@ -47,17 +47,17 @@
          </div>
       </div>
       <div class="delivery-options">
-         <a class="reserve" href="https://jardindeinvierno.meitre.com/" target="_blank">
+         <a class="reserve" data-key="buttons.reserve" href="https://jardindeinvierno.meitre.com/" target="_blank">
             Reservar
          </a>
-         <a class="whatsapp" href="https://wa.me/5491158027699" target="_blank">
+         <a class="whatsapp" data-key="buttons.whatsapp" href="https://wa.me/5491158027699" target="_blank">
             <i class="fab fa-whatsapp">
             </i>
             Whatsapp
          </a>
       </div>
       <div class="availability">
-         <span class="status">
+         <span class="status" data-key="availability.status">
             Horarios
          </span>
          <select>
@@ -75,72 +75,72 @@
       <div class="search-bar">
          <i class="fas fa-search">
          </i>
-         <input id="searchInput" oninput="searchProducts()" placeholder="Buscar productos por nombre" type="text" />
+         <input id="searchInput" oninput="searchProducts()" placeholder="Buscar productos por nombre" data-key="search.placeholder" type="text" />
       </div>
       <div class="categories">
          <div class="category" onclick="showSection('entradas')">
             <img alt="Entradas"  src="./CSS/img/entradas.png"  />
-            <p>
+            <p data-key="categories.entradas">
                Entradas
             </p>
          </div>
          <div class="category" onclick="showSection('ensaladas')">
             <img alt="Ensaladas"  src="./CSS/img/ensalada.png"  />
-            <p>
+            <p data-key="categories.ensaladas">
                Ensaladas
             </p>
          </div>
          <div class="category" onclick="showSection('grill-loisuites')">
             <img alt="Grill Loisuites"  src="./CSS/img/grill.png"  />
-            <p>
+            <p data-key="categories.grill-loisuites">
                Grill Loisuites
-            </p>
+            </p >
          </div>
          <div class="category" onclick="showSection('principales')">
             <img alt="Principales"  src="./CSS/img/principal.png"  />
-            <p>
+            <p data-key="categories.principales">
                Principales
             </p>
          </div>
          <div class="category" onclick="showSection('menu-infantil')">
             <img alt="Menu Infantil"  src="./CSS/img/menu-niño.png"  />
-            <p>
+            <p data-key="categories.menu-infantil">
                Menu Infantil
             </p>
          </div>
          <div class="category" onclick="showSection('postres')">
             <img alt="Postres"  src="./CSS/img/postres.png" />
-            <p>
+            <p data-key="categories.postres">
                Postres
             </p>
          </div>
          <div class="category" onclick="showSection('pastas-frescas')">
             <img alt="Pastas Frescas"  src="./CSS/img/pastas.png"  />
-            <p>
+            <p data-key="categories.pastas-frescas">
                Pastas Frescas
             </p>
          </div>
          <div class="category" onclick="showSection('bebidas')">
             <img alt="Bebidas"  src="./CSS/img/bebidas.png"  />
-            <p>
+            <p data-key="categories.bebidas">
                Bebidas
             </p>
          </div>
          <div class="category" onclick="showSection('cafeteria')">
             <img alt="Cafeteria"  src="./CSS/img/cafeteria.png"  />
-            <p>
+            <p data-key="categories.cafeteria">
                Cafeteria
             </p>
          </div>
          <div class="category" onclick="showSection('vinos')">
             <img alt="Vinos"  src="./CSS/img/vino.png"  />
-            <p>
+            <p data-key="categories.vinos">
                Vinos
             </p>
          </div>
          <div class="category" onclick="showSection('cocktail')">
             <img alt="Cocktail"  src="./CSS/img/cocktail.png"  />
-            <p>
+            <p data-key="categories.cocktail">
                Cocktail
             </p>
          </div>
@@ -179,8 +179,7 @@
                </div>
                <div>
                   <img alt="Image of Bombas de Salmon" 
-                     src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"
-                      />
+                     src="https://storage.googleapis.com/a1aa/image/yHRreseUJXjX2U34Ga9Kzw1Qq5l95eAebNwLef56teo99jB3JA.jpg"/>
                </div>
             </div>
             <div class="item">
@@ -1256,7 +1255,7 @@
       </section>
       <button id="backToTop" onclick="backToTop()"><i class="fas fa-chevron-up"></i></button>
 
-      <script src="./script.js"></script>
+      <script src="./data/script.js"></script>
 </body>
 
 </html>
