@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administrador · Jardín de Invierno</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{background:#f2f2f2}.admin{max-width:1100px;margin:auto;padding:16px 16px 100px}
+    .head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    .panel{background:#fff;border:1px solid #ddd;border-radius:14px;padding:16px;margin:14px 0}
+    .panel .panel{background:#fafafa}
+    .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .full{grid-column:1/-1}
+    label{display:block;font-weight:700;font-size:13px;margin-bottom:5px}
+    input,textarea,select{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;font-size:16px}
+    input[type=checkbox]{width:auto}input[type=file]{padding:6px;font-size:13px}
+    textarea{min-height:80px;resize:vertical}
+    button{padding:10px 14px;border:0;border-radius:8px;cursor:pointer;background:#111;color:#fff;font-size:14px}
+    button.secondary{background:#777}button.danger{background:#a33}button.small{padding:7px 10px}
+    .item-row{border-top:1px solid #eee;padding:14px 0}
+    .actions-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .hint{color:#666;font-size:13px}.thumb{height:56px;border-radius:8px;margin-top:6px;object-fit:cover}
+    .bar{position:fixed;left:0;right:0;bottom:0;z-index:10;background:#fff;border-top:1px solid #ddd;
+      padding:10px 16px max(10px,env(safe-area-inset-bottom));display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+    .bar a{display:inline-flex;align-items:center;padding:0 10px;color:#111}
+    #toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#111;color:#fff;padding:10px 16px;border-radius:8px;z-index:20}
+    @media(max-width:600px){.row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main class="admin">
+  <div class="head"><h1>Administrador del menú</h1><button class="secondary" id="logout">Cerrar sesión</button></div>
+  <p class="hint">Los cambios se guardan en este navegador. Para publicarlos a todos los clientes: “Descargar data.js”, reemplazá ese archivo en tu proyecto y volvé a subirlo (o conectá una base de datos).</p>
+  <div id="app"></div>
+</main>
+<div class="bar">
+  <button id="save">Guardar cambios</button>
+  <button id="download" class="secondary">Descargar data.js</button>
+  <button id="reset" class="secondary">Restaurar originales</button>
+  <a href="index.html">Ver menú</a>
+</div>
+<script src="auth.js"></script>
+<script>Auth.require();</script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script>
+(() => {
+  const app = MenuApp, $ = s => document.querySelector(s);
+  const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  let data = app.getData();
+
+  const field = (label, p, v, cls = "") => `<div class="${cls}"><label>${label}</label><input data-p="${p}" value="${esc(v)}"></div>`;
+  const image = (label, p, v) => `<div><label>${label}</label><input data-p="${p}" value="${esc(v && v.startsWith("data:") ? "" : v)}" placeholder="URL, ruta o subir archivo">
+    <input type="file" accept="image/*" data-file="${p}">${v ? `<img class="thumb" src="${esc(v)}" alt=""><div class="actions-row"><button type="button" class="small danger" data-act="clearimg:${p}">Quitar imagen</button></div>` : ""}</div>`;
+  const mv = (arr, i, d) => { const j = i + d; if (j < 0 || j >= arr.length) return; [arr[i], arr[j]] = [arr[j], arr[i]]; };
+  const btns = (k, ids, label) => `<div class="actions-row">
+    <button class="small secondary" data-act="up:${k}:${ids}" aria-label="Subir">↑</button>
+    <button class="small secondary" data-act="down:${k}:${ids}" aria-label="Bajar">↓</button>
+    <button class="small danger" data-act="del:${k}:${ids}">Eliminar ${label}</button></div>`;
+
+  function draw(){
+    const r = data.restaurant;
+    $("#app").innerHTML = `
+    <div class="panel"><h2>Datos generales</h2><div class="row">
+      ${field("Nombre","restaurant.name",r.name)}${field("Subtítulo","restaurant.subtitle",r.subtitle)}
+      ${image("Logo","restaurant.logo",r.logo)}${image("Imagen principal","restaurant.hero",r.hero)}
+      ${field("Link de reservas","restaurant.reservationUrl",r.reservationUrl)}${field("Link de WhatsApp","restaurant.whatsapp",r.whatsapp)}
+      ${field("Link para dejar reseñas","restaurant.reviewUrl",r.reviewUrl,"full")}
+      <p class="hint full">WhatsApp: usá el formato https://wa.me/549XXXXXXXXXX (código de país + área + número, sin signos). Reseñas: en Google Business Profile → “Pedir reseñas” te dan un link corto. Si dejás un campo vacío, ese botón no se muestra.</p>
+      <div class="full"><label>Horarios (uno por línea)</label><textarea data-p="hours" data-lines>${esc(data.hours.join("\n"))}</textarea></div>
+    </div></div>
+    <div class="panel"><h2>Redes sociales</h2>
+      <p class="hint">Pegá el link de cada perfil. Solo se muestran las que completes, y aparecen como íconos al final del menú.</p>
+      <div class="row">${app.SOCIAL.map(s=>field(s[1],"restaurant.social."+s[0],r.social?.[s[0]])).join("")}</div></div>
+    <div class="panel"><h2>Servicios del local</h2><div class="row">
+      ${app.AMENITIES.map(a=>`<label style="font-weight:400"><input type="checkbox" data-p="amenities.${a[0]}" ${data.amenities?.[a[0]]?"checked":""}> ${app.svg(a[1])} ${a[2]}</label>`).join("")}
+    </div></div>
+    <div class="panel"><h2>Slider</h2>
+      ${data.slides.map((s,i)=>`<div class="item-row"><div class="row">
+        ${field("Título",`slides.${i}.title`,s.title)}${field("Texto",`slides.${i}.text`,s.text)}
+        ${image("Imagen",`slides.${i}.image`,s.image)}
+        <div><label><input type="checkbox" data-p="slides.${i}.active" ${s.active!==false?"checked":""}> Visible</label></div>
+      </div>${btns("slide",i,"slide")}</div>`).join("")}
+      <button data-act="add:slide">+ Agregar slide</button></div>
+    <div class="panel"><h2>Categorías y productos</h2>
+      ${data.categories.map((c,ci)=>`<div class="panel"><div class="row">
+        ${field("Categoría",`categories.${ci}.name`,c.name)}${image("Icono",`categories.${ci}.icon`,c.icon)}</div>
+        ${btns("cat",ci,"categoría")}
+        ${c.items.map((it,ii)=>`<div class="item-row"><div class="row">
+          ${field("Producto",`categories.${ci}.items.${ii}.name`,it.name)}${field("Precio",`categories.${ci}.items.${ii}.price`,it.price)}
+          <div><label>Descripción</label><textarea data-p="categories.${ci}.items.${ii}.description">${esc(it.description)}</textarea></div>
+          ${image("Imagen",`categories.${ci}.items.${ii}.image`,it.image)}
+          <div><label><input type="checkbox" data-p="categories.${ci}.items.${ii}.available" ${it.available!==false?"checked":""}> Disponible</label></div>
+          <div class="full">${app.DIET.map(d=>`<label style="display:inline-block;margin-right:14px;font-weight:400"><input type="checkbox" data-p="categories.${ci}.items.${ii}.diet.${d[0]}" ${it.diet?.[d[0]]?"checked":""}> ${d[2]}</label>`).join("")}</div>
+        </div>${btns("item",ci+":"+ii,"producto")}</div>`).join("")}
+        <div class="actions-row"><button data-act="add:item:${ci}">+ Agregar producto</button></div></div>`).join("")}
+      <button data-act="add:cat">+ Agregar categoría</button></div>`;
+  }
+
+  function collect(){
+    document.querySelectorAll("[data-p]").forEach(el => {
+      const k = el.dataset.p.split("."), last = k.pop();
+      const o = k.reduce((a, x) => a[x], data);
+      o[last] = el.type === "checkbox" ? el.checked : "lines" in el.dataset ? el.value.split("\n").map(x => x.trim()).filter(Boolean) : el.value;
+    });
+  }
+  // Conserva la imagen subida si el campo de texto quedó vacío por ser data: URL
+  const keepUploads = old => document.querySelectorAll("[data-file]").forEach(el => {
+    const k = el.dataset.file.split("."), last = k.pop();
+    try { const prev = k.reduce((a,x)=>a[x], old)[last]; const o = k.reduce((a,x)=>a[x], data); if (!o[last] && prev?.startsWith("data:")) o[last] = prev; } catch(e){}
+  });
+  const sync = () => { const old = JSON.parse(JSON.stringify(data)); collect(); keepUploads(old); };
+
+  function resize(file){ return new Promise(res => {
+    const rd = new FileReader();
+    rd.onload = () => { const im = new Image(); im.onload = () => {
+      const s = Math.min(1, 800 / Math.max(im.width, im.height)), cv = document.createElement("canvas");
+      cv.width = im.width * s; cv.height = im.height * s; cv.getContext("2d").drawImage(im, 0, 0, cv.width, cv.height);
+      res(cv.toDataURL("image/jpeg", .75)); }; im.src = rd.result; };
+    rd.readAsDataURL(file); }); }
+
+  const toast = t => { const el = document.createElement("div"); el.id = "toast"; el.textContent = t; document.body.appendChild(el); setTimeout(() => el.remove(), 2200); };
+  const path = p => p.split(".").reduce((a, x) => a[x], data);
+
+  document.addEventListener("change", async e => {
+    if (!e.target.dataset.file || !e.target.files[0]) return;
+    const p = e.target.dataset.file, url = await resize(e.target.files[0]);
+    sync(); const k = p.split("."), last = k.pop(); k.reduce((a, x) => a[x], data)[last] = url; draw();
+  });
+
+  document.addEventListener("click", e => {
+    const a = e.target.dataset.act; if (!a) return;
+    sync();
+    const [op, kind, x, y] = a.split(":");
+    if (op === "clearimg"){
+      const k = kind.split("."), last = k.pop();
+      k.reduce((o, z) => o[z], data)[last] = "";
+      draw(); toast("Imagen quitada. Recordá guardar los cambios."); return;
+    }
+    if (op === "add"){
+      if (kind === "slide") data.slides.push({ title: "Nuevo slide", text: "", image: "", active: true });
+      if (kind === "cat") data.categories.push({ id: "cat-" + Date.now(), name: "Nueva categoría", icon: "", items: [] });
+      if (kind === "item") data.categories[+x].items.push({ name: "Nuevo producto", description: "", price: "", image: "", available: true, diet: {} });
+    } else {
+      const list = kind === "slide" ? data.slides : kind === "cat" ? data.categories : data.categories[+x].items;
+      const i = kind === "item" ? +y : +x;
+      if (op === "del" && confirm("¿Eliminar? Esta acción no se puede deshacer hasta que restaures los datos.")) list.splice(i, 1);
+      if (op === "up") mv(list, i, -1);
+      if (op === "down") mv(list, i, 1);
+    }
+    draw();
+  });
+
+  $("#save").onclick = () => { sync(); try { app.saveData(data); toast("Cambios guardados"); } catch(e){ alert("No hay espacio en el navegador. Usá URLs en vez de subir imágenes."); } };
+  $("#download").onclick = () => { sync();
+    const b = new Blob(["window.MENU_DATA = " + JSON.stringify(data, null, 2) + ";\n"], { type: "text/javascript" });
+    const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = "data.js"; a.click(); };
+  $("#reset").onclick = () => { if (confirm("¿Restaurar los datos originales?")){ app.reset(); data = app.getData(); draw(); } };
+  $("#logout").onclick = () => Auth.logout();
+  draw();
+})();
+</script>
+</body>
+</html>

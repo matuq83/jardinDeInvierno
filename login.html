@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar · Administrador</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body{display:grid;place-items:center;min-height:100dvh;padding:16px;background:var(--background)}
+    form{width:min(100%,380px);background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+    h1{margin:0 0 18px;font-size:24px}
+    label{display:block;font-weight:700;font-size:13px;margin-bottom:14px}
+    input{width:100%;margin-top:6px;padding:12px;border:1px solid #ccc;border-radius:8px;font-size:16px}
+    button{width:100%;padding:13px;border:0;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;font-size:16px;cursor:pointer}
+    button:disabled{opacity:.6}
+    #err{min-height:20px;margin:0 0 10px;color:#a33;font-size:14px}
+    a{display:block;margin-top:16px;text-align:center;color:var(--muted);font-size:14px}
+  </style>
+</head>
+<body>
+  <form id="f">
+    <h1>Ingresar al administrador</h1>
+    <label>Usuario<input id="u" autocomplete="username" required></label>
+    <label>Contraseña<input id="p" type="password" autocomplete="current-password" required></label>
+    <p id="err" role="alert"></p>
+    <button id="go">Ingresar</button>
+    <a href="index.html">Volver al menú</a>
+  </form>
+  <script src="auth.js"></script>
+  <script>
+    if (Auth.isIn()) location.replace("admin.html");
+    let fails = 0;
+    f.onsubmit = async e => {
+      e.preventDefault();
+      go.disabled = true;
+      if (await Auth.login(u.value, p.value)) return location.replace("admin.html");
+      fails++; err.textContent = "Usuario o contraseña incorrectos.";
+      p.value = ""; p.focus();
+      setTimeout(() => go.disabled = false, fails >= 3 ? 10000 : 500);
+      if (fails >= 3) err.textContent += " Esperá 10 segundos para reintentar.";
+    };
+  </script>
+</body>
+</html>
