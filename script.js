@@ -12,6 +12,7 @@
   const norm = d => {
     d.restaurant = d.restaurant || {};
     d.amenities = d.amenities || {};
+    d.panel = d.panel || {};
     d.restaurant.social = d.restaurant.social || {};
     if (d.restaurant.instagram && !d.restaurant.social.instagram) d.restaurant.social.instagram = d.restaurant.instagram;
     d.hours = d.hours || []; d.slides = d.slides || [];
